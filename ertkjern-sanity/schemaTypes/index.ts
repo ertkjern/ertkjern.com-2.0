@@ -1,22 +1,14 @@
+import profile from './profile'
+import workAndEducation from './work-and-education'
+import generalInfo from './generalInfo'
+import project from './project'
 import blockContent from './blockContent'
-import crewMember from './crewMember'
-import castMember from './castMember'
-import movie from './movie'
-import person from './person'
-import screening from './screening'
-import plotSummary from './plotSummary'
-import plotSummaries from './plotSummaries'
 
 export const schemaTypes = [
   // Document types
-  movie,
-  person,
-  screening,
-
-  // Other types
-  blockContent,
-  plotSummary,
-  plotSummaries,
-  castMember,
-  crewMember,
+  profile,
+  workAndEducation,
+  project,
+  generalInfo,
+  blockContent
 ]

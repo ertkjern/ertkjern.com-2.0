@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  --foreground-rgb: 251, 251, 253;
+  --color: 27, 27, 30;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  font-family: 'Lato', sans-serif !important;
+  background-color: rgb(var(--foreground-rgb));
+}
+
+/** easier in CSS than in tailwind, sorry */
+.title-after::after{
+  content: '';
+  position: absolute;
+  z-index: 0;
+  bottom: 12%;
+  left: 0.75rem;
+  width: 105%;
+  z-index: -1;
+  height: 25%;
+  background-color: #D4D4FF;
+}
+
+.block-content p{
+  margin-bottom: 0.5rem;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} 

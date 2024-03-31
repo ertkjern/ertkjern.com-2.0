@@ -1,20 +1,21 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  title: 'Plot summaries',
-  name: 'plotSummaries',
+  title: 'General Info',
+  name: 'generalInfo',
   type: 'object',
   fields: [
     defineField({
-      name: 'caption',
-      title: 'Caption',
+      name: 'title',
+      title: 'Title',
       type: 'string',
     }),
     defineField({
-      name: 'summaries',
-      title: 'Summaries',
+      name: 'bulletPoints',
+      title: 'bulletPoints',
       type: 'array',
-      of: [{type: 'plotSummary'}],
+      of: [{type: 'string'}],
     }),
+   
   ],
 })
