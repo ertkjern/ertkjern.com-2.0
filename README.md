@@ -12,13 +12,16 @@ This project is split into two main directories, each serving a distinct purpose
 ## Getting Started
 To get the project up and running on your local machine, follow these steps. Ensure you have Node.js installed on your system before proceeding.
 
-1. Clone the Repository: First, clone this repository to your local machine using Git.
+### Clone the Repository: 
+First, clone this repository to your local machine using Git.
 
-2. Install Dependencies: Navigate into both the ertkjern-sanity and ertkjern-web directories in separate terminal windows and run the following command to install necessary dependencies:
+### Install Dependencies:
+Navigate into both the ertkjern-sanity and ertkjern-web directories in separate terminal windows and run the following command to install necessary dependencies:
 
     `npm install`
 
-3. Run the Project: After installing the dependencies, start the local development server by running:
+### Run the Project:
+After installing the dependencies, start the local development server by running:
 
     `npm run dev`
 
