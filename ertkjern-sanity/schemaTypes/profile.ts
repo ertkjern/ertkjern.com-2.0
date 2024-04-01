@@ -49,6 +49,23 @@ export default defineType({
       of: [{type: 'workAndEducation'}]
     }),
     defineField({
+      name: 'quickFacts',
+      title: 'Quick facts',
+      type: 'array',
+      of: [{type: 'quickFacts'}]
+    }),
+    defineField({
+      name: 'projectsDescription',
+      title: 'Projects Description',
+      type: 'blockContent',
+    }),
+    defineField({
+      name: 'projects',
+      title: 'Projects',
+      type: 'array',
+      of: [{type: 'project'}]
+    }),
+    defineField({
       name: 'footerTitle',
       title: 'Footer title',
       type: 'string',

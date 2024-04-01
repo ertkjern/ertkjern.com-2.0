@@ -6,17 +6,22 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-        name: 'type',
-        title: 'What is this?',
-        type: 'string',
-        options: {
-          list: [
-            {title: 'Work', value: 'work'},
-            {title: 'Education', value: 'education'},
-          ],
-          layout: 'radio',
-        },
-      }),
+      name: 'type',
+      title: 'What is this?',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Work', value: 'work'},
+          {title: 'Education', value: 'education'},
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -38,11 +43,11 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
-        name: 'bulletPoints',
-        title: 'Bullet points',
-        type: 'array',
-        of: [{type: 'string'}],
-      }),
+      name: 'bulletPoints',
+      title: 'Bullet points',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
     defineField({
       name: 'url',
       title: 'Link to work or education',

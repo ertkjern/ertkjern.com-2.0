@@ -132,6 +132,17 @@ export type Project = {
 export type WorkAndEducation = {
   _type: "workAndEducation";
   type?: "work" | "education";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   title?: string;
   description?: string;
   startDate?: string;
@@ -166,6 +177,9 @@ export type Profile = {
   workAndEducation?: Array<{
     _key: string;
   } & WorkAndEducation>;
+  quickFacts?: Array<{
+    _key: string;
+  } & QuickFacts>;
   footerTitle?: string;
 };
 
@@ -224,6 +238,21 @@ export type SanityImageMetadata = {
   blurHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
+};
+
+export type QuickFacts = {
+  _type: "quickFacts";
+  title?: string;
+  icon?: string;
+  facts?: Array<{
+    _key: string;
+  } & Facts>;
+};
+
+export type Facts = {
+  _type: "facts";
+  title?: string;
+  facts?: Array<string>;
 };
 export declare const internalGroqTypeReferenceTo: unique symbol;
 

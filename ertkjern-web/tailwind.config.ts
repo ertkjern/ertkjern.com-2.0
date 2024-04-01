@@ -15,6 +15,10 @@ const config: Config = {
       },
       boxShadow: {
         "primary": "2px 4px 12px rgba(0, 0, 0, 0.25)",
+        "hover": "2px 4px 16px rgba(0, 0, 0, 0.25)",
+      },
+      scale: {
+        "101": "1.05",
       },
       colors: {
         "primary-bg-gray": "#FBFBFD",
