@@ -18,12 +18,12 @@ First, clone this repository to your local machine using Git.
 ### Install Dependencies:
 Navigate into both the ertkjern-sanity and ertkjern-web directories in separate terminal windows and run the following command to install necessary dependencies:
 
-    `npm install`
+    npm install
 
 ### Run the Project:
 After installing the dependencies, start the local development server by running:
 
-    `npm run dev`
+    npm run dev
 
 Note: Repeat the installation and run steps for both directories to get both the CMS and web application running locally.
 
