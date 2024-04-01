@@ -1,7 +1,7 @@
 
 # Personalized Web Page / Resume
 
-This project showcases my curriculum vitae (CV) along with a selection of my professional and personal projects. Developed using Next.js and Tailwind CSS for a sleek, modern aesthetic, it leverages Sanity.io as the Content Management System (CMS) to ensure content is easily manageable and dynamically updated.
+This project showcases my curriculum vitae (CV) along with a selection of personal projects. Developed using Next.js and Tailwind CSS for a sleek, modern aesthetic, it leverages Sanity.io as the Content Management System (CMS) to ensure content is easily manageable and dynamically updated.
 
 ## Project Overview
 This project is split into two main directories, each serving a distinct purpose:
