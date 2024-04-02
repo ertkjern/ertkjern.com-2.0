@@ -180,6 +180,10 @@ export type Profile = {
   quickFacts?: Array<{
     _key: string;
   } & QuickFacts>;
+  projectsDescription?: BlockContent;
+  projects?: Array<{
+    _key: string;
+  } & Project>;
   footerTitle?: string;
 };
 

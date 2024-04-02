@@ -1064,6 +1064,36 @@
         },
         "optional": true
       },
+      "projectsDescription": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "blockContent"
+        },
+        "optional": true
+      },
+      "projects": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "project"
+            }
+          }
+        },
+        "optional": true
+      },
       "footerTitle": {
         "type": "objectAttribute",
         "value": {

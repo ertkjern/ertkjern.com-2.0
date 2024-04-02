@@ -27,8 +27,6 @@ export const CV: FC<Props> = ({
     (item) => item.type === "education"
   );
 
-    console.log(quickFacts)
-
   return (
     <div className="container mx-auto">
       <Title children="Curriculum Vitae" tag="h3" />

@@ -45,7 +45,7 @@ export default async function IndexPage() {
         />
       </div>
       <div id="projects" className="mt-32">
-        <Projects />
+        <Projects projects={myProfile.projects ?? []} projectsDescription={myProfile?.projectsDescription ?? []} />
       </div>
       <Footer email={myProfile.email ?? ''} title={myProfile.footerTitle ?? ''} />
     </main>

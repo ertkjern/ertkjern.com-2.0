@@ -33,11 +33,6 @@ export default defineType({
       type: 'blockContent',
     }),
     defineField({
-      name: 'productsIntroduction',
-      title: 'Products Introduction',
-      type: 'blockContent',
-    }),
-    defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
