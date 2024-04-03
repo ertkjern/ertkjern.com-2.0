@@ -35,6 +35,12 @@ https://ertkjern.com
 
 Feel free to explore the website to see my CV and projects in action. The site is publicly accessible and designed to provide a comprehensive overview of my professional portfolio in a user-friendly format.
 
+## Generate types
+
+To generate typescript types you can run the following command in the sanity project
+
+`npm run typegen`
+
 ## Feedback and Contributions
 
 I'm always open to feedback and contributions to improve the website. If you have suggestions or want to contribute, please feel free to create an issue or pull request on this repository. Your input is valuable and greatly appreciated!
