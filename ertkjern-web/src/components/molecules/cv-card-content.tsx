@@ -29,7 +29,7 @@ export const CVCardContent: FC<Props> = ({
       </div>
       <h5 className="text-lg font-bold mt-4">{title}</h5>
       {startDate && 
-        <p className="my-1 text-gray-500">{getFromToDate(start, end)} · {getJobLength(start, end)}</p>
+        <p className="my-1 text-sm text-gray-500">{getFromToDate(start, end)} <br/> {getJobLength(start, end)}</p>
       }
       <p className="my-1">{description}</p>
       <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-500 border-b-2 border-blue-500">Read more</a>

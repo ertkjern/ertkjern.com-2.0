@@ -45,6 +45,7 @@ body {
 .block-content p{
   margin-bottom: 0.5rem;
   @apply text-lg;
+  line-height: 1.85rem;
 }
 
 .scale-101-3d{
