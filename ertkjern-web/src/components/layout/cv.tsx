@@ -29,11 +29,11 @@ export const CV: FC<Props> = ({
 
   return (
     <div className="container mx-auto">
-      <Title children="Curriculum Vitae" tag="h3" />
+      <Title tag="h3">Curriculum Vitae</Title>
       <div className="block-content">
         <PortableText value={introdution} />
       </div>
-      <Title className="mt-16" children="General" tag="h4" />
+      <Title className="mt-16" tag="h4">General</Title>
       <div className="px-3">
         {quickFacts.map((item, index) => {
           return (
@@ -41,7 +41,7 @@ export const CV: FC<Props> = ({
           );
         })}
       </div>
-      <Title className="mt-16" children="Work" tag="h4" />
+      <Title className="mt-16" tag="h4">Work</Title>
       <div className="px-3 grid gap-4 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1">
         {work?.map((item, index) => {
           const imageUrl = item.image ? urlFor(item.image)?.url() : "";
@@ -59,7 +59,7 @@ export const CV: FC<Props> = ({
           );
         })}
       </div>
-      <Title className="mt-16" children="Education" tag="h4" />
+      <Title className="mt-16" tag="h4">Education</Title>
       <div className="grid gap-4 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1">
         {education?.map((item, index) => {
           const imageUrl = item.image ? urlFor(item.image)?.url() : "";

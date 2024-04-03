@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FC } from "react";
 
 
@@ -31,7 +32,7 @@ export const Header: FC<Props> = ({
           </nav>
         </div>
         <div>
-          <img
+          <Image
             alt="Image"
             className="rounded-full object-cover object-center shadow-primary w-96 h-96 max-md:w-60 max-md:h-60 max-sm:w-48 max-sm:h-48"
             src={profileImage ?? ''}

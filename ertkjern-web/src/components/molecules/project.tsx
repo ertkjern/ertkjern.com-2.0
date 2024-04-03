@@ -1,5 +1,6 @@
 import { Project as ProjectModel } from "@/sanity/sanity.types";
 import { urlFor } from "@/utils/sanity";
+import Image from "next/image";
 import { FC, Fragment } from "react";
 
 interface Props {
@@ -12,9 +13,9 @@ export const Project: FC<Props> = ({ project }) => {
   return (
     <div key={project.title} className="flex flex-col mt-16">
       <div className="flex max-md:justify-center">
-        <img
-          src={logoUrl}
-          alt={project.title}
+        <Image
+          src={logoUrl ?? ''}
+          alt={project.title ?? ''}
           className="object-contain w-1/3 max-md:place-content-center max-md:w-150"
         />
       </div>
