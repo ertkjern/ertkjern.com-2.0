@@ -25,7 +25,7 @@ export const CVCardContent: FC<Props> = ({
   return (
     <div className="clickable-card p-4 ">
       <div className="w-full flex justify-center align-center h-32">
-        <Image src={image} alt={title} />
+        <Image src={image} alt={title} width={450} height={150}/>
       </div>
       <h5 className="text-lg font-bold mt-4">{title}</h5>
       {startDate && 

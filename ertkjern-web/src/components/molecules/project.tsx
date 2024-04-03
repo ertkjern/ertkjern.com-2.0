@@ -16,6 +16,8 @@ export const Project: FC<Props> = ({ project }) => {
         <Image
           src={logoUrl ?? ''}
           alt={project.title ?? ''}
+          width={159}
+          height={157}
           className="object-contain w-1/3 max-md:place-content-center max-md:w-150"
         />
       </div>
