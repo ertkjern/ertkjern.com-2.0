@@ -20,13 +20,13 @@ export const Header: FC<Props> = ({
           <h2 className="text-3xl px-16 font-light max-sm:px-0 max-sm:text-3xl">{title}</h2>
           <div className="border-b-4 border-indigo-200 my-4 max-sm:my-1"></div>
           <nav className="flex justify-center gap-16">
-            <a href="#about" className="text-xl text-blue-500 pb-1 border-b-2 border-blue-500">
+            <a href="#about" className="text-xl text-blue-700 pb-1 border-b-2 border-blue-700">
               About
             </a>
-            <a href="#cv" className="text-xl text-blue-500 pb-1 border-b-2 border-blue-500">
+            <a href="#cv" className="text-xl text-blue-700 pb-1 border-b-2 border-blue-700">
               CV
             </a>
-            <a href="#projects" className="text-xl	text-blue-500 pb-1 border-b-2 border-blue-500">
+            <a href="#projects" className="text-xl	text-blue-700 pb-1 border-b-2 border-blue-700">
               Project
             </a>
           </nav>

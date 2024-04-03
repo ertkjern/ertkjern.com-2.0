@@ -32,7 +32,7 @@ export const CVCardContent: FC<Props> = ({
         <p className="my-1 text-sm text-gray-500">{getFromToDate(start, end)} <br/> {getJobLength(start, end)}</p>
       }
       <p className="my-1">{description}</p>
-      <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-500 border-b-2 border-blue-500">Read more</a>
+      <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-700 border-b-2 border-blue-700">Vist website</a>
     </div>
   );
 };
