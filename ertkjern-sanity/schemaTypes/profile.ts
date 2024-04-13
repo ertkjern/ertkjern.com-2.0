@@ -65,6 +65,14 @@ export default defineType({
       title: 'Footer title',
       type: 'string',
     }),
+    // ...all other settings
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+    })
   
   ],
 })

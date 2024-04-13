@@ -9,7 +9,7 @@ import { CV } from "@/components/layout/cv";
 import { Projects } from "@/components/layout/projects";
 import { Footer } from "@/components/layout/footer";
 
-const EVENTS_QUERY = `*[_type == "profile"]`;
+const EVENTS_QUERY = `*[_type == "profile" && language == 'en']`;
 
 // Display Sanity content on the page
 export default async function IndexPage() {
