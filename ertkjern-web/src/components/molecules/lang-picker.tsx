@@ -10,7 +10,7 @@ export const LanguagePicker: FC<Props> = ({ currentLanguage }) => {
   const userCanSwapTo = currentLanguage === "en" ? "no" : "en";
   const t = useTranslations('language');
   return (
-    <Link href={`./${userCanSwapTo}`} className="flex center-content p-2">
+    <Link href={`./${userCanSwapTo}`} className="absolute p-2 flex center-content">
       <span className="material-symbols-outlined mr-2">language</span>
       {currentLanguage === "en" ? t("toNorwegian") : t("toEnglish")}
     </Link>
