@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -11,8 +12,11 @@ interface Props {
 export const Header: FC<Props> = ({
     name,
     title,
-    profileImage
+    profileImage,
   }) => {  
+
+    const t = useTranslations('headers');
+
     return (
       <div className="container mx-auto flex items-center justify-evenly h-screen max-lg:flex-wrap max-lg:flex-col-reverse max-lg:justify-center max-lg:gap-20">
         <div className="flex flex-col justify-center text-center gap-3 max-lg:gap-8 max-sm:gap-4 max-sm:mx-4">
@@ -21,13 +25,13 @@ export const Header: FC<Props> = ({
           <div className="border-b-4 border-indigo-200 my-4 max-sm:my-1"></div>
           <nav className="flex justify-center gap-16">
             <a href="#about" className="text-xl text-blue-700 pb-1 border-b-2 border-blue-700">
-              About
+              {t('about')}
             </a>
             <a href="#cv" className="text-xl text-blue-700 pb-1 border-b-2 border-blue-700">
-              CV
+              {t('cv')}
             </a>
             <a href="#projects" className="text-xl	text-blue-700 pb-1 border-b-2 border-blue-700">
-              Project
+              {t('projects')}
             </a>
           </nav>
         </div>

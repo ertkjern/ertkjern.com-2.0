@@ -9,17 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@portabletext/react": "^3.0.15",
     "@sanity/image-url": "^1.0.2",
     "@vercel/analytics": "^1.2.2",
     "@vercel/speed-insights": "^1.0.10",
     "date-fns": "^3.6.0",
+    "i18next": "^23.11.2",
+    "negotiator": "^0.6.3",
     "next": "14.1.4",
+    "next-i18next": "^15.3.0",
+    "next-intl": "^3.11.1",
     "next-sanity": "^8.5.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-i18next": "^14.1.0"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

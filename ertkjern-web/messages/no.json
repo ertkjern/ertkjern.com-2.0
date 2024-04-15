@@ -1,0 +1,20 @@
+{
+  "language": {
+    "toEnglish": "Swap to English",
+    "toNorwegian": "Bytt til norsk"
+  },
+  "headers": {
+    "about": "Om meg",
+    "projects": "Prosjekter",
+    "cv": "CV",
+    "curriculumVitae": "Curriculum Vitae",
+    "general": "Generelt",
+    "work": "Arbeid",
+    "education": "Utdannelse"
+  },
+  "general": {
+    "reachOut": "Kontakt meg ",
+    "visitWebsite": "Besøk nettsiden",
+    "tryItOut": "Prøv det ut"
+  }
+}

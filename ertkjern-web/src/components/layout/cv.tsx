@@ -10,6 +10,7 @@ import { Card } from "../atoms/card";
 import { CVCardContent } from "../molecules/cv-card-content";
 import { urlFor } from "@/utils/sanity";
 import { QuickFacts } from "../molecules/quick-facts";
+import { useTranslations } from "next-intl";
 
 interface Props {
   introdution: BlockContent;
@@ -22,6 +23,9 @@ export const CV: FC<Props> = ({
   quickFacts,
   workAndEducation,
 }) => {
+  const headersI18n = useTranslations('headers');
+  const generalI18n = useTranslations('general');
+
   const work = workAndEducation?.filter((item) => item.type === "work");
   const education = workAndEducation?.filter(
     (item) => item.type === "education"
@@ -29,11 +33,11 @@ export const CV: FC<Props> = ({
 
   return (
     <div className="container mx-auto">
-      <Title tag="h3">Curriculum Vitae</Title>
+      <Title tag="h3">{headersI18n('curriculumVitae')}</Title>
       <div className="block-content">
         <PortableText value={introdution} />
       </div>
-      <Title className="mt-16" tag="h4">General</Title>
+      <Title className="mt-16" tag="h4">{headersI18n('general')}</Title>
       <div className="px-3">
         {quickFacts.map((item, index) => {
           return (
@@ -41,7 +45,7 @@ export const CV: FC<Props> = ({
           );
         })}
       </div>
-      <Title className="mt-16" tag="h4">Work</Title>
+      <Title className="mt-16" tag="h4">{headersI18n('work')}</Title>
       <div className="px-3 grid gap-4 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1">
         {work?.map((item, index) => {
           const imageUrl = item.image ? urlFor(item.image)?.url() : "";
@@ -54,12 +58,13 @@ export const CV: FC<Props> = ({
                 startDate={item.startDate}
                 toDate={item.endDate}
                 url={item.url ?? ""}
+                linkText={generalI18n('visitWebsite')}
               />
             </Card>
           );
         })}
       </div>
-      <Title className="mt-16" tag="h4">Education</Title>
+      <Title className="mt-16" tag="h4">{headersI18n('education')}</Title>
       <div className="grid gap-4 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1">
         {education?.map((item, index) => {
           const imageUrl = item.image ? urlFor(item.image)?.url() : "";
@@ -72,6 +77,7 @@ export const CV: FC<Props> = ({
                 startDate={item.startDate}
                 toDate={item.endDate}
                 url={item.url ?? ""}
+                linkText={generalI18n('visitWebsite')}
               />
             </Card>
           );

@@ -5,9 +5,10 @@ import { FC, Fragment } from "react";
 
 interface Props {
   project: ProjectModel;
+  linkText: string;
 }
 
-export const Project: FC<Props> = ({ project }) => {
+export const Project: FC<Props> = ({ project, linkText }) => {
   const logoUrl = project.logo ? urlFor(project.logo)?.url() : "";
 
   return (
@@ -43,7 +44,7 @@ export const Project: FC<Props> = ({ project }) => {
             rel="noopener noreferrer"
             className="inline-block mt-3 text-blue-700 border-b-2 border-blue-700"
           >
-            Try it out
+            {linkText}
           </a>
         </div>
       )}

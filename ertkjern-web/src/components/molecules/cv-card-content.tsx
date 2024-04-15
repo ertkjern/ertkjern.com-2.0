@@ -10,6 +10,7 @@ interface Props {
   toDate?: string;
   image: string;
   url: string;
+  linkText: string,
 }
 
 export const CVCardContent: FC<Props> = ({
@@ -19,6 +20,7 @@ export const CVCardContent: FC<Props> = ({
   startDate,
   toDate,
   url,
+  linkText
 }) => {
   const start = parseISO(startDate ?? new Date().toISOString());
   const end = parseISO(toDate ?? new Date().toISOString());
@@ -32,7 +34,7 @@ export const CVCardContent: FC<Props> = ({
         <p className="my-1 text-sm text-gray-500">{getFromToDate(start, end)} <br/> {getJobLength(start, end)}</p>
       }
       <p className="my-1">{description}</p>
-      <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-700 border-b-2 border-blue-700">Vist website</a>
+      <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-700 border-b-2 border-blue-700">{linkText}</a>
     </div>
   );
 };
