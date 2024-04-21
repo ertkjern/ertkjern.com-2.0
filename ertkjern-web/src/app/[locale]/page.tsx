@@ -33,6 +33,7 @@ export async function generateMetadata(
   }
 }
 
+
 // Display Sanity content on the page
 export default async function IndexPage({
   params: { locale },
