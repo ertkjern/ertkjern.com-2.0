@@ -151,6 +151,43 @@ export type WorkAndEducation = {
   url?: string;
 };
 
+export type QuickFacts = {
+  _type: "quickFacts";
+  title?: string;
+  icon?: string;
+  facts?: Array<{
+    _key: string;
+  } & Facts>;
+};
+
+export type Facts = {
+  _type: "facts";
+  title?: string;
+  facts?: Array<string>;
+};
+
+export type TranslationMetadata = {
+  _id: string;
+  _type: "translation.metadata";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  translations?: Array<{
+    _key: string;
+  } & InternationalizedArrayReferenceValue>;
+  schemaTypes?: Array<string>;
+};
+
+export type InternationalizedArrayReferenceValue = {
+  _type: "internationalizedArrayReferenceValue";
+  value?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "profile";
+  };
+};
+
 export type Profile = {
   _id: string;
   _type: "profile";
@@ -172,7 +209,6 @@ export type Profile = {
   title?: string;
   aboutMe?: BlockContent;
   cvIntroduction?: BlockContent;
-  productsIntroduction?: BlockContent;
   email?: string;
   workAndEducation?: Array<{
     _key: string;
@@ -185,6 +221,9 @@ export type Profile = {
     _key: string;
   } & Project>;
   footerTitle?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  language?: string;
 };
 
 export type SanityImageCrop = {
@@ -244,19 +283,8 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type QuickFacts = {
-  _type: "quickFacts";
-  title?: string;
-  icon?: string;
-  facts?: Array<{
-    _key: string;
-  } & Facts>;
-};
-
-export type Facts = {
-  _type: "facts";
-  title?: string;
-  facts?: Array<string>;
-};
+export type InternationalizedArrayReference = Array<{
+  _key: string;
+} & InternationalizedArrayReferenceValue>;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 

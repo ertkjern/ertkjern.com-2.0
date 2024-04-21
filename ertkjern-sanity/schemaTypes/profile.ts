@@ -65,6 +65,16 @@ export default defineType({
       title: 'Footer title',
       type: 'string',
     }),
+    defineField({
+      name: 'metaTitle',
+      title: 'Meta title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta desription',
+      type: 'string',
+    }),
     // ...all other settings
     defineField({
       // should match 'languageField' plugin configuration setting, if customized

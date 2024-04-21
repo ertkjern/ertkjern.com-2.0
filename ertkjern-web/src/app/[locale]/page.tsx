@@ -9,14 +9,36 @@ import { CV } from "@/components/layout/cv";
 import { Projects } from "@/components/layout/projects";
 import { Footer } from "@/components/layout/footer";
 import { LanguagePicker } from "@/components/molecules/lang-picker";
+import Head from "next/head";
+import { Metadata } from "next";
+
+type MetaDataProps = {
+  params: { locale: string }
+}
+
+export async function generateMetadata(
+  { params }: MetaDataProps,
+): Promise<Metadata> {
+  // read route params
+  console.log("params", params.locale);
+  const profiles = (await client.fetch<SanityDocument[]>(
+    `*[_type == "profile" && language == '${params.locale}']`
+  )) as Profile[]; 
+  // optionally access and extend (rather than replace) parent metadata
+ 
+  console.log("profiles", profiles);
+  return {
+    title: profiles[0]?.metaTitle ?? "",
+    description: profiles[0]?.metaDescription ?? "",
+  }
+}
 
 // Display Sanity content on the page
 export default async function IndexPage({
-  params: {locale}
+  params: { locale },
 }: {
-  params: {locale: string};
+  params: { locale: string };
 }) {
-  console.log("locale", locale);
   const profiles = (await client.fetch<SanityDocument[]>(
     `*[_type == "profile" && language == '${locale}']`
   )) as Profile[];
@@ -31,19 +53,20 @@ export default async function IndexPage({
     : null;
 
   return (
+    <>
+      <Head>
+        <title>{myProfile.metaTitle ?? ""}</title>
+        <meta name="description" content={myProfile.metaDescription ?? ""} />
+      </Head>
       <main>
-        <LanguagePicker
-          currentLanguage={locale}
-        />
+        <LanguagePicker currentLanguage={locale} />
         <Header
           name={myProfile.name ?? ""}
           title={myProfile.title ?? ""}
           profileImage={profileImage}
         />
         <div id="about" className="my-32">
-          <About
-            body={myProfile.aboutMe ?? []}
-          />
+          <About body={myProfile.aboutMe ?? []} />
         </div>
         <div id="cv" className="px-4">
           <CV
@@ -63,5 +86,6 @@ export default async function IndexPage({
           title={myProfile.footerTitle ?? ""}
         />
       </main>
+    </>
   );
 }
