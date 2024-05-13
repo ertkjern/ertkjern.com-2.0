@@ -19,12 +19,10 @@ type MetaDataProps = {
 export async function generateMetadata(
   { params }: MetaDataProps,
 ): Promise<Metadata> {
-  // read route params
   console.log("params", params.locale);
   const profiles = (await client.fetch<SanityDocument[]>(
     `*[_type == "profile" && language == '${params.locale}']`
   )) as Profile[]; 
-  // optionally access and extend (rather than replace) parent metadata
  
   console.log("profiles", profiles);
   return {
@@ -34,7 +32,6 @@ export async function generateMetadata(
 }
 
 
-// Display Sanity content on the page
 export default async function IndexPage({
   params: { locale },
 }: {
