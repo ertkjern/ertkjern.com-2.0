@@ -59,6 +59,7 @@ export const CV: FC<Props> = ({
                 toDate={item.endDate}
                 url={item.url ?? ""}
                 linkText={generalI18n('visitWebsite')}
+                startingText={generalI18n('starting')}
               />
             </Card>
           );
@@ -78,6 +79,7 @@ export const CV: FC<Props> = ({
                 toDate={item.endDate}
                 url={item.url ?? ""}
                 linkText={generalI18n('visitWebsite')}
+                startingText={generalI18n('starting')}
               />
             </Card>
           );
