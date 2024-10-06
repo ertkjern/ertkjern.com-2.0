@@ -10,13 +10,14 @@ import { capitalizeFirstLetter } from "./common";
 import { useTranslations } from "next-intl";
 
 export const getJobLength = (fromDate: Date, toDate: Date): string => {
+  const generalI18n = useTranslations('general');
   const yearDiff = differenceInYears(toDate, fromDate);
 
   // Get month diff (but not total, subtract years and add 1 as months begins on zero)
   const monthDiff = differenceInMonths(toDate, fromDate) - yearDiff * 12 + 1;
-  const yearString = yearDiff > 0 ? `${yearDiff} years ` : "";
+  const yearString = yearDiff > 0 ? `${yearDiff} ${generalI18n('years')} ` : "";
   const monthString =
-    monthDiff > 0 && monthDiff !== 1 ? `${monthDiff} months ` : "";
+    monthDiff > 0 && monthDiff !== 1 ? `${monthDiff} ${generalI18n('months')} ` : "";
 
   // Return string
   return `${yearString}${monthString}`;
@@ -26,7 +27,7 @@ export const getFromToDate = (fromDate: Date, toDate: Date, locale: string) => {
   const generalI18n = useTranslations('general');
 
   const isStillActiveJob = isSameDay(new Date(), toDate);
-  console.log(fromDate.toISOString(), toDate.toISOString());
+
   const langCode = getLangCode(locale);
   const from = format(fromDate, "MMMM yyyy", { locale: langCode });
   const to = format(toDate, "MMMM yyyy", { locale: langCode });
