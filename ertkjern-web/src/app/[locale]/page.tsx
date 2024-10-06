@@ -13,7 +13,7 @@ import Head from "next/head";
 import { Metadata } from "next";
 
 type MetaDataProps = {
-  params: { locale: string }
+  params: { locale: 'en' | 'no' };
 }
 
 export async function generateMetadata(
@@ -35,7 +35,7 @@ export async function generateMetadata(
 export default async function IndexPage({
   params: { locale },
 }: {
-  params: { locale: string };
+  params: { locale: 'en' | 'no' };
 }) {
   const profiles = (await client.fetch<SanityDocument[]>(
     `*[_type == "profile" && language == '${locale}']`
@@ -68,6 +68,7 @@ export default async function IndexPage({
         </div>
         <div id="cv" className="px-4">
           <CV
+            locale={locale}
             quickFacts={myProfile.quickFacts ?? []}
             introdution={myProfile.cvIntroduction ?? []}
             workAndEducation={myProfile.workAndEducation ?? []}

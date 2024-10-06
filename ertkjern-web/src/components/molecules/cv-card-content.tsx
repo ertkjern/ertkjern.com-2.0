@@ -1,7 +1,8 @@
-import { getFromToDate, getJobLength, } from "@/utils/date";
+import { getFromToDate, getJobLength, getLangCode, } from "@/utils/date";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import { FC } from "react";
+import { nb, enUS } from 'date-fns/locale'
 
 interface Props {
   title: string;
@@ -12,6 +13,7 @@ interface Props {
   url: string;
   linkText: string,
   startingText: string;
+  locale: 'en' | 'no';
 }
 
 export const CVCardContent: FC<Props> = ({
@@ -23,6 +25,7 @@ export const CVCardContent: FC<Props> = ({
   url,
   linkText,
   startingText,
+  locale,
 }) => {
   const start = parseISO(startDate ?? new Date().toISOString());
   const end = parseISO(toDate ?? new Date().toISOString());
@@ -34,10 +37,10 @@ export const CVCardContent: FC<Props> = ({
       </div>
       <h5 className="text-lg font-bold mt-4">{title}</h5>
       {(startDate && !hasNotStarted) && 
-        <p className="my-1 text-sm text-gray-500">{getFromToDate(start, end)} <br/> {getJobLength(start, end)}</p>
+        <p className="my-1 text-sm text-gray-500">{getFromToDate(start, end, locale)} <br/> {getJobLength(start, end)}</p>
       }
       {hasNotStarted &&
-        <p className="my-1 text-sm text-gray-500">{startingText}: {format(start, 'MMMM')}</p>
+        <p className="my-1 text-sm text-gray-500">{startingText}: {format(start, 'MMMM', { locale: getLangCode(locale)})}</p>
       }
       <p className="my-1">{description}</p>
       <a href={url} target="_blank" rel="noreferrer" className="inline-block mt-3 text-blue-700 border-b-2 border-blue-700">{linkText}</a>

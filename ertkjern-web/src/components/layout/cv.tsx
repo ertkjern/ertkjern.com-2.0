@@ -16,12 +16,14 @@ interface Props {
   introdution: BlockContent;
   quickFacts: QuickFactsModel[];
   workAndEducation: WorkAndEducation[];
+  locale: 'en' | 'no';
 }
 
 export const CV: FC<Props> = ({
   introdution,
   quickFacts,
   workAndEducation,
+  locale,
 }) => {
   const headersI18n = useTranslations('headers');
   const generalI18n = useTranslations('general');
@@ -60,6 +62,7 @@ export const CV: FC<Props> = ({
                 url={item.url ?? ""}
                 linkText={generalI18n('visitWebsite')}
                 startingText={generalI18n('starting')}
+                locale={locale}
               />
             </Card>
           );
@@ -80,6 +83,7 @@ export const CV: FC<Props> = ({
                 url={item.url ?? ""}
                 linkText={generalI18n('visitWebsite')}
                 startingText={generalI18n('starting')}
+                locale={locale}
               />
             </Card>
           );
