@@ -2,7 +2,6 @@ import { getFromToDate, getJobLength, getLangCode, } from "@/utils/date";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import { FC } from "react";
-import { nb, enUS } from 'date-fns/locale'
 
 interface Props {
   title: string;

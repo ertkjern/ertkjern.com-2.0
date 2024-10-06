@@ -14,8 +14,9 @@
   },
   "general": {
     "reachOut": "Reach out at",
-    "visitWebsite": "Besøk nettsiden",
-    "tryItOut": "Prøv det ut",
+    "visitWebsite": "Visit website",
+    "tryItOut": "Try it out",
+    "today": "Today",
     "starting": "Starting"
   }
 }

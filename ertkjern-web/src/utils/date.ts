@@ -7,6 +7,7 @@ import {
 } from "date-fns";
 import { nb, enUS } from "date-fns/locale";
 import { capitalizeFirstLetter } from "./common";
+import { useTranslations } from "next-intl";
 
 export const getJobLength = (fromDate: Date, toDate: Date): string => {
   const yearDiff = differenceInYears(toDate, fromDate);
@@ -22,13 +23,15 @@ export const getJobLength = (fromDate: Date, toDate: Date): string => {
 };
 
 export const getFromToDate = (fromDate: Date, toDate: Date, locale: string) => {
+  const generalI18n = useTranslations('general');
+
   const isStillActiveJob = isSameDay(new Date(), toDate);
   console.log(fromDate.toISOString(), toDate.toISOString());
   const langCode = getLangCode(locale);
   const from = format(fromDate, "MMMM yyyy", { locale: langCode });
   const to = format(toDate, "MMMM yyyy", { locale: langCode });
   return `${capitalizeFirstLetter(from)} - 
-            ${isStillActiveJob ? "Today" : capitalizeFirstLetter(to)}`;
+            ${isStillActiveJob ? generalI18n("today") : capitalizeFirstLetter(to)}`;
 };
 
 export const getLangCode = (locale: string): Locale => {
