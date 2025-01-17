@@ -13,8 +13,12 @@ import Head from "next/head";
 import { Metadata } from "next";
 
 type MetaDataProps = {
-  params: { locale: 'en' | 'no' };
+  params: Promise<{ locale: 'en' | 'no' }>;
 }
+
+ 
+type Params = Promise<{ locale: 'en' | 'no' }>
+
 
 export async function generateMetadata(
   { params }: MetaDataProps,
@@ -36,7 +40,7 @@ export async function generateMetadata(
 export default async function IndexPage({
   params
 }: {
-  params: { locale: 'en' | 'no' };
+  params: Params
 }) {
 
   const { locale } = await params;

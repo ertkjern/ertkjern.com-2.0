@@ -8,14 +8,14 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-const inter = Inter({ subsets: ["latin"] });
+type Params = Promise<{ locale: string }>
 
 export default async function RootLayout({
   children,
   params
 }: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: Params
 }) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
@@ -30,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <NextIntlClientProvider messages={messages}>
-        <body className={inter.className}>
+        <body>
           {children}
           <Analytics />
           <SpeedInsights />
