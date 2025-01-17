@@ -13,15 +13,20 @@ import Head from "next/head";
 import { Metadata } from "next";
 
 type MetaDataProps = {
-  params: { locale: 'en' | 'no' };
+  params: Promise<{ locale: 'en' | 'no' }>;
 }
+
+ 
+type Params = Promise<{ locale: 'en' | 'no' }>
+
 
 export async function generateMetadata(
   { params }: MetaDataProps,
 ): Promise<Metadata> {
 
+  const { locale } = await params;
   const profiles = (await client.fetch<SanityDocument[]>(
-    `*[_type == "profile" && language == '${params.locale}']`
+    `*[_type == "profile" && language == '${locale}']`
   )) as Profile[]; 
  
 
@@ -33,10 +38,12 @@ export async function generateMetadata(
 
 
 export default async function IndexPage({
-  params: { locale },
+  params
 }: {
-  params: { locale: 'en' | 'no' };
+  params: Params
 }) {
+
+  const { locale } = await params;
   const profiles = (await client.fetch<SanityDocument[]>(
     `*[_type == "profile" && language == '${locale}']`
   )) as Profile[];
