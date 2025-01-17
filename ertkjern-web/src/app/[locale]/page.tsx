@@ -20,8 +20,9 @@ export async function generateMetadata(
   { params }: MetaDataProps,
 ): Promise<Metadata> {
 
+  const { locale } = await params;
   const profiles = (await client.fetch<SanityDocument[]>(
-    `*[_type == "profile" && language == '${params.locale}']`
+    `*[_type == "profile" && language == '${locale}']`
   )) as Profile[]; 
  
 
@@ -33,10 +34,12 @@ export async function generateMetadata(
 
 
 export default async function IndexPage({
-  params: { locale },
+  params
 }: {
   params: { locale: 'en' | 'no' };
 }) {
+
+  const { locale } = await params;
   const profiles = (await client.fetch<SanityDocument[]>(
     `*[_type == "profile" && language == '${locale}']`
   )) as Profile[];
