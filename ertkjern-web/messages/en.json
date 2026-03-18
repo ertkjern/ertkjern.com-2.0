@@ -20,5 +20,16 @@
     "years": "years",
     "months": "months",
     "starting": "Starting"
+  },
+  "projectPage": {
+    "openAppPage": "Open app page",
+    "backToHome": "Back to home",
+    "appStore": "Download on the App Store",
+    "googlePlay": "Get it on Google Play",
+    "privacyPolicy": "Privacy policy",
+    "termsOfUse": "Terms of use",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "descriptionHeading": "Description"
   }
 }
