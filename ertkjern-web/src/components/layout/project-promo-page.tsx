@@ -16,6 +16,7 @@ interface Props {
 
 export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
   const t = useTranslations('projectPage')
+  const languagePickerHref = page.slug?.current ? `/apps/${page.slug.current}` : '/'
   const appImageUrl = page.headerImage ? urlFor(page.headerImage)?.url() : null
   const screenshots = (page.screenshots ?? []).flatMap((item, index) => {
     if (!item?.image?.asset?._ref) {
@@ -39,7 +40,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
 
   return (
     <main className="min-h-screen bg-primary-bg-gray">
-      <LanguagePicker currentLanguage={locale} />
+      <LanguagePicker currentLanguage={locale} href={languagePickerHref} />
 
       <div className="container mx-auto px-4 pb-24 pt-24">
         <Link

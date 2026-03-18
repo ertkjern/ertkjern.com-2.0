@@ -48,7 +48,7 @@ export default async function IndexPage({
   return (
     <>
       <main>
-        <LanguagePicker currentLanguage={locale} />
+        <LanguagePicker currentLanguage={locale} href="/" />
         <Header
           name={profile.name ?? ""}
           title={profile.title ?? ""}

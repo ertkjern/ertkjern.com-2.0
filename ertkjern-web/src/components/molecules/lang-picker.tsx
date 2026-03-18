@@ -1,21 +1,21 @@
 'use client';
 
-import { Link, usePathname } from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { FC } from "react";
 
 interface Props {
   currentLanguage: string;
+  href: string;
 }
 
-export const LanguagePicker: FC<Props> = ({ currentLanguage }) => {
+export const LanguagePicker: FC<Props> = ({ currentLanguage, href }) => {
   const userCanSwapTo = currentLanguage === "en" ? "no" : "en";
   const t = useTranslations('language');
-  const pathname = usePathname();
 
   return (
     <Link
-      href={pathname}
+      href={href}
       locale={userCanSwapTo}
       className="absolute p-2 flex center-content"
     >
