@@ -60,38 +60,57 @@ body {
 .project-richtext h2,
 .project-richtext h3,
 .project-richtext h4{
-  margin-top: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
   font-weight: 700;
   color: #1d1d1f;
+  line-height: 1.2;
 }
 
 .project-richtext h1{
-  font-size: 1.9rem;
+  font-size: 1.7rem;
 }
 
 .project-richtext h2{
-  font-size: 1.6rem;
+  font-size: 1.45rem;
 }
 
 .project-richtext h3{
-  font-size: 1.35rem;
+  font-size: 1.25rem;
 }
 
 .project-richtext h4{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.project-richtext h1:first-child,
+.project-richtext h2:first-child,
+.project-richtext h3:first-child,
+.project-richtext h4:first-child{
+  margin-top: 0;
+}
+
+.project-richtext p{
+  color: #3a3a3c;
+  line-height: 2rem;
+}
+
+.project-richtext p + p{
+  margin-top: 0.85rem;
 }
 
 .project-richtext ul{
-  margin-top: 0.5rem;
-  margin-bottom: 0.8rem;
-  padding-left: 1.4rem;
+  margin-top: 0.85rem;
+  margin-bottom: 1.1rem;
+  padding-left: 1.6rem;
   list-style: disc;
 }
 
 .project-richtext li{
-  margin-bottom: 0.25rem;
-  line-height: 1.75rem;
+  margin-bottom: 0.45rem;
+  line-height: 1.85rem;
+  color: #3a3a3c;
 }
 
 .project-richtext a{
@@ -102,6 +121,14 @@ body {
 
 .project-richtext strong{
   font-weight: 700;
+}
+
+.project-richtext blockquote{
+  margin: 1.2rem 0;
+  border-left: 3px solid #d1d1d6;
+  padding-left: 1rem;
+  color: #4a4a4f;
+  font-style: italic;
 }
 
 .scale-101-3d{

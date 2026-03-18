@@ -30,8 +30,8 @@ export default defineType({
       group: 'hero',
       validation: (Rule) => Rule.required().custom((value) => {
         const localizedValue = value as LocalizedStringValue
-        if (!localizedValue?.no || !localizedValue?.en) {
-          return 'Title is required in both Norwegian and English'
+        if (!localizedValue?.en) {
+          return 'English title is required'
         }
 
         return true
@@ -75,8 +75,8 @@ export default defineType({
       group: 'content',
       validation: (Rule) => Rule.required().custom((value) => {
         const localizedValue = value as LocalizedBlockContentValue
-        if (!localizedValue?.no?.length || !localizedValue?.en?.length) {
-          return 'Description is required in both Norwegian and English'
+        if (!localizedValue?.en?.length) {
+          return 'English description is required'
         }
 
         return true
@@ -147,8 +147,8 @@ export default defineType({
       group: 'legal',
       validation: (Rule) => Rule.required().custom((value) => {
         const localizedValue = value as LocalizedBlockContentValue
-        if (!localizedValue?.no?.length || !localizedValue?.en?.length) {
-          return 'Terms of use is required in both Norwegian and English'
+        if (!localizedValue?.en?.length) {
+          return 'English terms of use is required'
         }
 
         return true
@@ -161,8 +161,8 @@ export default defineType({
       group: 'legal',
       validation: (Rule) => Rule.required().custom((value) => {
         const localizedValue = value as LocalizedBlockContentValue
-        if (!localizedValue?.no?.length || !localizedValue?.en?.length) {
-          return 'Privacy policy is required in both Norwegian and English'
+        if (!localizedValue?.en?.length) {
+          return 'English privacy policy is required'
         }
 
         return true

@@ -53,23 +53,23 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
         <div className="space-y-8">
           <section className="rounded-lg bg-white p-6 shadow-primary md:p-8">
             <div className="flex items-start gap-4 md:gap-6">
-              <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-[#0A5AC5] shadow-primary md:h-36 md:w-36">
-                {appImageUrl ? (
-                  <Image
-                    src={appImageUrl}
-                    alt={page.title ?? 'App icon'}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center px-2 text-center text-sm text-white">
-                    {page.title}
-                  </div>
-                )}
-              </div>
+              {appImageUrl ? (
+                <Image
+                  src={appImageUrl}
+                  alt={page.title ?? 'App icon'}
+                  width={144}
+                  height={144}
+                  className="block h-32 w-32 shrink-0 rounded-2xl object-cover shadow-primary md:h-40 md:w-40"
+                  priority
+                  sizes="(min-width: 768px) 10rem, 8rem"
+                />
+              ) : (
+                <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-2xl bg-secondary-bg-gray px-2 text-center text-sm text-gray-600 shadow-primary md:h-40 md:w-40">
+                  {page.title}
+                </div>
+              )}
 
-              <div className="flex min-h-24 min-w-0 flex-col justify-center md:min-h-36">
+              <div className="flex min-h-32 min-w-0 flex-col justify-center md:min-h-40">
                 <h1 className="text-2xl font-semibold leading-tight text-[#1d1d1f]">{page.title}</h1>
                 {page.subtitle && (
                   <p className="mt-1 text-base font-normal text-[#6e6e73]">{page.subtitle}</p>
@@ -84,6 +84,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                         width={120}
                         height={40}
                         className="h-10 w-auto"
+                        sizes="120px"
                       />
                     </a>
                   )}
@@ -95,6 +96,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                         width={135}
                         height={40}
                         className="h-10 w-auto"
+                        sizes="135px"
                       />
                     </a>
                   )}
@@ -115,6 +117,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                         width={320}
                         height={680}
                         className="h-full w-full object-cover"
+                        sizes="(min-width: 768px) 8rem, 7rem"
                       />
                     </div>
                   </div>
@@ -124,26 +127,38 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
           )}
 
           <section className="rounded-lg bg-white p-6 shadow-primary md:p-8">
-            <div className="space-y-10">
+            <div className="max-w-4xl space-y-6">
               <section>
-                <h3 className="mb-3 text-2xl font-semibold text-[#1d1d1f]">{t('descriptionHeading')}</h3>
+                <h3 className="mb-4 text-3xl font-semibold tracking-tight text-[#1d1d1f]">
+                  {t('descriptionHeading')}
+                </h3>
                 <CollapsiblePortableText
                   value={page.description ?? []}
                   fadeClassName="via-white/95 to-white"
-                  collapsedHeightClassName="max-h-[11rem]"
+                  collapsedHeightClassName="max-h-[14rem]"
                   contentClassName="project-richtext"
                 />
               </section>
 
-              <section>
-                <h4 className="mb-3 text-2xl font-semibold text-[#1d1d1f]">{t('termsOfUse')}</h4>
+              <section
+                id="terms-of-use"
+                className="scroll-mt-24 rounded-2xl bg-secondary-bg-gray/65 p-6 md:p-8"
+              >
+                <h4 className="mb-4 text-[1.8rem] font-semibold tracking-tight text-[#1d1d1f]">
+                  {t('termsOfUse')}
+                </h4>
                 <div className="block-content project-richtext text-[#1d1d1f]">
                   <PortableText value={page.termsOfUse ?? []} />
                 </div>
               </section>
 
-              <section>
-                <h4 className="mb-3 text-2xl font-semibold text-[#1d1d1f]">{t('privacyPolicy')}</h4>
+              <section
+                id="privacy-policy"
+                className="scroll-mt-24 rounded-2xl bg-secondary-bg-gray/65 p-6 md:p-8"
+              >
+                <h4 className="mb-4 text-[1.8rem] font-semibold tracking-tight text-[#1d1d1f]">
+                  {t('privacyPolicy')}
+                </h4>
                 <div className="block-content project-richtext text-[#1d1d1f]">
                   <PortableText value={page.privacyPolicy ?? []} />
                 </div>
