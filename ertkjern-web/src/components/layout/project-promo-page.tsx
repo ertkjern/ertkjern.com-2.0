@@ -111,14 +111,14 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
               <div className="flex gap-6 overflow-x-auto pb-1">
                 {screenshots.map((screenshot) => (
                   <div key={screenshot.url} className="shrink-0">
-                    <div className="h-52 w-28 overflow-hidden rounded-[1.5rem] border-[5px] border-black bg-black shadow-primary md:h-64 md:w-32">
+                    <div className="w-[15.3rem] shadow-primary md:w-[17.1rem]">
                       <Image
                         src={screenshot.url}
                         alt={screenshot.alt}
-                        width={320}
-                        height={680}
-                        className="h-full w-full object-cover"
-                        sizes="(min-width: 768px) 8rem, 7rem"
+                        width={800}
+                        height={1680}
+                        className="block h-auto w-full rounded-none"
+                        sizes="(min-width: 768px) 17.1rem, 15.3rem"
                       />
                     </div>
                   </div>
@@ -133,12 +133,14 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                 <h3 className="mb-4 text-3xl font-semibold tracking-tight text-[#1d1d1f]">
                   {t('descriptionHeading')}
                 </h3>
-                <CollapsiblePortableText
-                  value={page.description ?? []}
-                  fadeClassName="via-white/95 to-white"
-                  collapsedHeightClassName="max-h-[14rem]"
-                  contentClassName="project-richtext"
-                />
+                <div className="mb-6">
+                  <CollapsiblePortableText
+                    value={page.description ?? []}
+                    fadeClassName="via-white/95 to-white"
+                    collapsedHeightClassName="max-h-[14rem]"
+                    contentClassName="project-richtext"
+                  />
+                </div>
               </section>
 
               <section

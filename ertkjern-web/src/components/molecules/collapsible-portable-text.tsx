@@ -42,7 +42,7 @@ export const CollapsiblePortableText = ({
 
       <button
         type="button"
-        className="mt-4 border-b-2 border-blue-700 pb-1 text-blue-700"
+        className="mb-8 border-b-2 border-blue-700 pb-1 text-blue-700"
         onClick={() => setExpanded((prev) => !prev)}
       >
         {expanded ? t('showLess') : t('showMore')}
