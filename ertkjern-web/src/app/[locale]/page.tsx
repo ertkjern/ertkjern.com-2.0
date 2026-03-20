@@ -1,7 +1,4 @@
-import { SanityDocument } from "next-sanity";
-
-import { client } from "@/sanity/client";
-import { Profile } from "@/sanity/sanity.types";
+import { getHomeProfile } from "@/sanity/queries";
 import { urlFor } from "@/utils/sanity";
 import { Header } from "@/components/layout/header";
 import { About } from "@/components/layout/about";
@@ -9,7 +6,6 @@ import { CV } from "@/components/layout/cv";
 import { Projects } from "@/components/layout/projects";
 import { Footer } from "@/components/layout/footer";
 import { LanguagePicker } from "@/components/molecules/lang-picker";
-import Head from "next/head";
 import { Metadata } from "next";
 
 type MetaDataProps = {
@@ -23,16 +19,12 @@ type Params = Promise<{ locale: 'en' | 'no' }>
 export async function generateMetadata(
   { params }: MetaDataProps,
 ): Promise<Metadata> {
-
   const { locale } = await params;
-  const profiles = (await client.fetch<SanityDocument[]>(
-    `*[_type == "profile" && language == '${locale}']`
-  )) as Profile[]; 
- 
+  const profile = await getHomeProfile(locale);
 
   return {
-    title: profiles[0]?.metaTitle ?? "",
-    description: profiles[0]?.metaDescription ?? "",
+    title: profile?.metaTitle ?? "",
+    description: profile?.metaDescription ?? "",
   }
 }
 
@@ -42,54 +34,47 @@ export default async function IndexPage({
 }: {
   params: Params
 }) {
-
   const { locale } = await params;
-  const profiles = (await client.fetch<SanityDocument[]>(
-    `*[_type == "profile" && language == '${locale}']`
-  )) as Profile[];
-  // there can only be one. If none? Nothing to show
-  if (profiles.length === 0) {
+  const profile = await getHomeProfile(locale);
+
+  if (!profile) {
     return <div className="mx-auto flex items-center">No profile found</div>;
   }
 
-  const myProfile = profiles[0];
-  const profileImage = myProfile.profilePicture
-    ? urlFor(myProfile.profilePicture)?.url()
+  const profileImage = profile.profilePicture
+    ? urlFor(profile.profilePicture)?.url()
     : null;
 
   return (
     <>
-      <Head>
-        <title>{myProfile.metaTitle ?? ""}</title>
-        <meta name="description" content={myProfile.metaDescription ?? ""} />
-      </Head>
       <main>
-        <LanguagePicker currentLanguage={locale} />
+        <LanguagePicker currentLanguage={locale} href="/" />
         <Header
-          name={myProfile.name ?? ""}
-          title={myProfile.title ?? ""}
+          name={profile.name ?? ""}
+          title={profile.title ?? ""}
           profileImage={profileImage}
         />
         <div id="about" className="my-32">
-          <About body={myProfile.aboutMe ?? []} />
+          <About body={profile.aboutMe ?? []} />
         </div>
         <div id="cv" className="px-4">
           <CV
             locale={locale}
-            quickFacts={myProfile.quickFacts ?? []}
-            introdution={myProfile.cvIntroduction ?? []}
-            workAndEducation={myProfile.workAndEducation ?? []}
+            quickFacts={profile.quickFacts ?? []}
+            introdution={profile.cvIntroduction ?? []}
+            workAndEducation={profile.workAndEducation ?? []}
           />
         </div>
         <div id="projects" className="mt-32">
           <Projects
-            projects={myProfile.projects ?? []}
-            projectsDescription={myProfile?.projectsDescription ?? []}
+            locale={locale}
+            projects={profile.projects ?? []}
+            projectsDescription={profile.projectsDescription ?? []}
           />
         </div>
         <Footer
-          email={myProfile.email ?? ""}
-          title={myProfile.footerTitle ?? ""}
+          email={profile.email ?? ""}
+          title={profile.footerTitle ?? ""}
         />
       </main>
     </>

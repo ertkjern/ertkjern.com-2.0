@@ -13,14 +13,17 @@ export const Title: FC<Props> = ({
 }) => {
     const HeadingTag = tag as React.ElementType;
 
-    //A dd background color to h3 and h4
-    let bgColor = '';
-    if(tag === 'h3') bgColor = 'after:bg-indigo-200';
-    if(tag === 'h4') bgColor = 'after:bg-green-200';
+    let titleAfterBg = '#D4D4FF';
+    if(tag === 'h4') titleAfterBg = '#D4FFED';
 
     return (
         <div className={`relative w-fit text-3xl font-semibold z-0 my-8 ${className}`}>
-            <HeadingTag className={`border-b-2 border-black title-after ${bgColor}`}>{children}</HeadingTag>
+            <HeadingTag
+                className="border-b-2 border-black title-after"
+                style={{ ['--title-after-bg' as string]: titleAfterBg }}
+            >
+                {children}
+            </HeadingTag>
         </div>
     );
 }
