@@ -15,6 +15,7 @@ interface Props {
 export const Projects: FC<Props> = ({ locale, projects, projectsDescription, }) => {
   const projectPageI18n = useTranslations('projectPage');
   const headersI18n = useTranslations('headers');
+  const generalI18n = useTranslations('general');
 
   return (
     <div className="bg-secondary-bg-gray w-full max-md:px-4">
@@ -29,7 +30,8 @@ export const Projects: FC<Props> = ({ locale, projects, projectsDescription, }) 
               key={project._key ?? project.title}
               locale={locale}
               project={project}
-              linkText={projectPageI18n('openAppPage')}
+              readMoreText={projectPageI18n('openAppPage')}
+              websiteText={generalI18n('visitWebsite')}
             />
           ))}
         </div>
