@@ -11,7 +11,7 @@ export const Footer: FC<FooterProps> = ({ title, email}) => {
     return (
         <footer className="w-full bg-h3-bg py-40 flex px-4 items-center flex-col text-center">
             <h2 className="text-5xl mb-4 font-light">{title}</h2>
-            <h3 className="text-2xl font-light">{t('reachOut')} {email}</h3>
+            <h3 id="support" className="text-2xl font-light">{t('reachOut')} {email}</h3>
         </footer>
     )
 }
