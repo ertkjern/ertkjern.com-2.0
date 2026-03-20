@@ -1,14 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
-
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 .material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 
 :root {
@@ -39,13 +47,88 @@ body {
   width: 105%;
   z-index: -1;
   height: 25%;
-  background-color: #D4D4FF;
+  background-color: var(--title-after-bg, #D4D4FF);
 }
 
 .block-content p{
   margin-bottom: 0.5rem;
   @apply text-lg;
   line-height: 1.85rem;
+}
+
+.project-richtext h1,
+.project-richtext h2,
+.project-richtext h3,
+.project-richtext h4{
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  line-height: 1.2;
+}
+
+.project-richtext h1{
+  font-size: 1.7rem;
+}
+
+.project-richtext h2{
+  font-size: 1.45rem;
+}
+
+.project-richtext h3{
+  font-size: 1.25rem;
+}
+
+.project-richtext h4{
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.project-richtext h1:first-child,
+.project-richtext h2:first-child,
+.project-richtext h3:first-child,
+.project-richtext h4:first-child{
+  margin-top: 0;
+}
+
+.project-richtext p{
+  color: #3a3a3c;
+  line-height: 2rem;
+}
+
+.project-richtext p + p{
+  margin-top: 0.85rem;
+}
+
+.project-richtext ul{
+  margin-top: 0.85rem;
+  margin-bottom: 1.1rem;
+  padding-left: 1.6rem;
+  list-style: disc;
+}
+
+.project-richtext li{
+  margin-bottom: 0.45rem;
+  line-height: 1.85rem;
+  color: #3a3a3c;
+}
+
+.project-richtext a{
+  color: #1869d4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.project-richtext strong{
+  font-weight: 700;
+}
+
+.project-richtext blockquote{
+  margin: 1.2rem 0;
+  border-left: 3px solid #d1d1d6;
+  padding-left: 1rem;
+  color: #4a4a4f;
+  font-style: italic;
 }
 
 .scale-101-3d{
@@ -65,8 +148,6 @@ body {
   left: 0px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} 
+@utility text-balance {
+  text-wrap: balance;
+}
