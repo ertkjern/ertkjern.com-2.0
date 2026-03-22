@@ -19,13 +19,13 @@ export const Project: FC<Props> = ({ locale, project, readMoreText, websiteText 
   return (
     <div className="flex flex-col mt-16">
       {logoUrl && (
-        <div className="flex max-md:justify-center">
+        <div className="flex justify-start">
           <Image
             src={logoUrl}
             alt={project.title ?? ""}
             width={159}
             height={157}
-            className="object-contain w-1/3 max-md:place-content-center max-md:w-150"
+            className="object-contain w-1/3 max-md:h-[85px] max-md:w-[85px] max-md:max-w-full"
           />
         </div>
       )}
