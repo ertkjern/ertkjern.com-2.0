@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "3T6J2K3UV4.com.ertkjern.matchUp"
+        ],
+        "paths": [
+          "/", 
+          "/easter"
+        ]       
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "3T6J2K3UV4.com.ertkjern.matchUp"
+    ]
+  }
+} 
