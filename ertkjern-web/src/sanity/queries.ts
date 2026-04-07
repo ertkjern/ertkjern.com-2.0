@@ -46,6 +46,11 @@ export interface ProjectPromoPage {
   privacyPolicy?: BlockContent
 }
 
+export interface ProjectPromoPageSlug {
+  slug: string
+  updatedAt?: string
+}
+
 export interface FooterProfile {
   email?: string
   footerTitle?: string
@@ -99,6 +104,11 @@ const projectPromoPageQuery = `*[_type == "projectPage" && slug.current == $slug
   "privacyPolicy": coalesce(privacyPolicy[$locale], privacyPolicy.en, privacyPolicy.no)
 }`
 
+const projectPromoPageSlugsQuery = `*[_type == "projectPage" && defined(slug.current)]{
+  "slug": slug.current,
+  "updatedAt": _updatedAt
+}`
+
 export const getHomeProfile = async (locale: string) =>
   client.fetch<HomeProfile | null>(homeProfileQuery, {locale})
 
@@ -107,3 +117,6 @@ export const getFooterProfile = async (locale: string) =>
 
 export const getProjectPromoPage = async (slug: string, locale: string) =>
   client.fetch<ProjectPromoPage | null>(projectPromoPageQuery, {slug, locale})
+
+export const getProjectPromoPageSlugs = async () =>
+  client.fetch<ProjectPromoPageSlug[]>(projectPromoPageSlugsQuery)
