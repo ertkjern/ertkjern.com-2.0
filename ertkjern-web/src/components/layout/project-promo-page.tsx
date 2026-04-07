@@ -18,6 +18,8 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
   const t = useTranslations('projectPage')
   const languagePickerHref = page.slug?.current ? `/apps/${page.slug.current}` : '/'
   const appImageUrl = page.headerImage ? urlFor(page.headerImage)?.url() : null
+  const cardClassName = 'md:rounded-lg md:bg-white md:p-8 md:shadow-primary'
+  const insetCardClassName = 'scroll-mt-24 md:rounded-2xl md:bg-secondary-bg-gray/65 md:p-8'
   const screenshots = (page.screenshots ?? []).flatMap((item, index) => {
     if (!item?.image?.asset?._ref) {
       return []
@@ -52,7 +54,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
         </Link>
 
         <div className="space-y-8">
-          <section className="rounded-lg bg-white p-6 shadow-primary md:p-8">
+          <section className={cardClassName}>
             <div className="flex items-start gap-4 md:gap-6">
               {appImageUrl ? (
                 <Image
@@ -107,11 +109,11 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
           </section>
 
           {screenshots.length > 0 && (
-            <section className="rounded-lg bg-white p-6 shadow-primary md:p-8">
+            <section className={cardClassName}>
               <div className="flex gap-6 overflow-x-auto pb-1">
                 {screenshots.map((screenshot) => (
                   <div key={screenshot.url} className="shrink-0">
-                    <div className="w-[15.3rem] shadow-primary md:w-[17.1rem]">
+                    <div className="w-[15.3rem] md:w-[17.1rem] md:shadow-primary">
                       <Image
                         src={screenshot.url}
                         alt={screenshot.alt}
@@ -127,7 +129,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
             </section>
           )}
 
-          <section className="rounded-lg bg-white p-6 shadow-primary md:p-8">
+          <section className={cardClassName}>
             <div className="max-w-4xl space-y-6">
               <section>
                 <h3 className="mb-4 text-3xl font-semibold tracking-tight text-[#1d1d1f]">
@@ -143,10 +145,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                 </div>
               </section>
 
-              <section
-                id="terms-of-use"
-                className="scroll-mt-24 rounded-2xl bg-secondary-bg-gray/65 p-6 md:p-8"
-              >
+              <section id="terms-of-use" className={insetCardClassName}>
                 <h4 className="mb-4 text-[1.8rem] font-semibold tracking-tight text-[#1d1d1f]">
                   {t('termsOfUse')}
                 </h4>
@@ -155,10 +154,7 @@ export const ProjectPromoPageLayout = ({locale, page, footer}: Props) => {
                 </div>
               </section>
 
-              <section
-                id="privacy-policy"
-                className="scroll-mt-24 rounded-2xl bg-secondary-bg-gray/65 p-6 md:p-8"
-              >
+              <section id="privacy-policy" className={insetCardClassName}>
                 <h4 className="mb-4 text-[1.8rem] font-semibold tracking-tight text-[#1d1d1f]">
                   {t('privacyPolicy')}
                 </h4>
